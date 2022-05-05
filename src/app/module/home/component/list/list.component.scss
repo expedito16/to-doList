@@ -1,0 +1,49 @@
+@import "/src/dist/variables.scss";
+
+section {
+  width: 100%;
+  background: $secondary-background-color;
+  min-height: 250px;
+  box-shadow: 0 4px 10px black;
+
+  &.loading {
+    background-image: url("../../../../../assets/img/bg-task.png");
+    background-repeat: no-repeat;
+    background-position: center 30px;
+  }
+
+  ul {
+    padding: 20px 20px;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+
+      input[checkbox] {
+        width: 5%;
+      }
+
+      input {
+        &[type="text"] {
+          width: 80%;
+          font-size: 16px;
+          color: $secondary-color;
+          border: none;
+        }
+
+        &.checked {
+          text-decoration: line-through;
+        }
+      }
+
+      button {
+        width: 5%;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
