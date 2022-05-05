@@ -1,0 +1,11 @@
+@import "/src/dist/variables.scss";
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  background: $primary-color;
+  color: $secondary-text-color;
+  margin-bottom: 20px;
+}
