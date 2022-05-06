@@ -17,4 +17,17 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteTaskItem ($event: any) {
+    this.taskList.splice($event, 1);
+  }
+
+  deleteTaskAll () {
+    if (this.taskList.length) {
+      const confirm = window.confirm("Deseja excluir toda a lista de atividades ?")
+
+      if (confirm) {
+        this.taskList = [];
+      }
+    }
+  }
 }
