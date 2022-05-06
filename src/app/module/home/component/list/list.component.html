@@ -1,5 +1,5 @@
-<section>
-  <ul>
+<section [ngClass]="{'loading' : !taskList.length}">
+  <ul *ngIf="taskList.length">
     <li *ngFor="let item of taskList">
       <input type="checkbox" [(ngModel)]="item.checked">
       <input type="text" [(ngModel)]="item.task">
@@ -12,4 +12,4 @@
 </section>
 
   <app-add-task></app-add-task>
-  <app-button-delete-all></app-button-delete-all>
+  <app-button-delete-all *ngIf="taskList.length"></app-button-delete-all>
