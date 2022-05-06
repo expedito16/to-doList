@@ -4,6 +4,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { ListComponent } from './component/list/list.component';
 import { AddTaskComponent } from './component/add-task/add-task.component';
 import { ButtonDeleteAllComponent } from './component/button-delete-all/button-delete-all.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ButtonDeleteAllComponent } from './component/button-delete-all/button-d
     ButtonDeleteAllComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,
