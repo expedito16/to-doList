@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { TaskItem } from '../../model/task-item';
 
 @Component({
@@ -6,12 +6,13 @@ import { TaskItem } from '../../model/task-item';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
-  taskList: Array<TaskItem> = [];
+export class ListComponent implements DoCheck {
+  taskList: Array<TaskItem> = JSON.parse(localStorage.getItem("list") || "[]");
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngDoCheck () {
+    this.setLocalStorage();
   }
 
   setTaskItem ($event: string) {
@@ -29,6 +30,13 @@ export class ListComponent implements OnInit {
       if (confirm) {
         this.taskList = [];
       }
+    }
+  }
+
+  setLocalStorage () {
+    if (this.taskList) {
+      this.taskList.sort((first, last) => Number(first.checked) - Number(last.checked));
+      localStorage.setItem("list", JSON.stringify(this.taskList));
     }
   }
 }
