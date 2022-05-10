@@ -7,14 +7,15 @@ import { TaskItem } from '../../model/task-item';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  taskList: Array<TaskItem> = [
-    { task: "task de teste1", checked: false },
-    { task: "task de teste2", checked: false },
-  ];
+  taskList: Array<TaskItem> = [];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setTaskItem ($event: string) {
+    this.taskList.push({ task: $event, checked: false });
   }
 
   deleteTaskItem ($event: any) {

@@ -2,5 +2,7 @@
   <input
     type="text"
     placeholder="Digite sua nova task aqui..."
+    [(ngModel)]="addTaskItem"
+    (keyup.enter)="submitTaskItem()"
   >
 </section>
